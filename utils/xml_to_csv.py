@@ -26,10 +26,10 @@ def xml_to_csv(path):
 
 
 def main():
-    for folder in ['train', 'test1', 'test2']:
-        image_path = os.path.join(os.getcwd(), ('images/' + folder))
-        xml_df = xml_to_csv(image_path)
-        xml_df.to_csv(('images/'+folder+'_labels.csv'), index=None)
+    # for folder in ['train', 'test1', 'test2']:
+    image_path = os.path.join(os.getcwd(), ('RDD2020_data/' + "/annotations/xmls/"))
+    xml_df = xml_to_csv(image_path)
+    xml_df.to_csv(('RDD2020_data/labels.csv'), index=None)
     print('Successfully converted xml to csv.')
 
 
