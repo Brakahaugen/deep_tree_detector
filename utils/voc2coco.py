@@ -1,36 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Brakahaugen 
-yukkyo
-/
-voc2coco
-1
-56
-44
-Code
-Issues
-2
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-voc2coco/voc2coco.py /
-@cagbal
-cagbal Added extract_num_from_imgid flag to argparse
-Latest commit ecc6ab2 on 31 Aug
- History
- 2 contributors
-@yukkyo@cagbal
-152 lines (131 sloc)  5.45 KB
-  
 import os
 import argparse
 import json
