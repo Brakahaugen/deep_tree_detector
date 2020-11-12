@@ -182,6 +182,7 @@ def find_trees_in_image(img_east_north: list, image_direction: float, image_dire
             trees_in_pic += 1
             tree_values.append(local_location)
             trees_for_advanced_proj.append(tree_east_north_height)
+            
 
     print("We found trees")
     print(trees_for_advanced_proj)
