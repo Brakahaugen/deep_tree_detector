@@ -1,0 +1,38 @@
+Camera Name: unknown
+
+Unique ID: unknown
+
+Calibration Date: 02/11/2020 11:29AM
+
+Resolution:  Width = 4008 pixels,  pixel width = 0.0090 mm
+            Height = 2672 pixels, pixel height = 0.0090 mm
+
+Principal Distance c = 21.7258 mm
+
+Principal Point Offsets xp = -0.4446 mm
+                        yp = 0.2109 mm
+
+Radial Distortion K1 = -2.03262e-005
+                  K2 = 1.07229e-007
+                  K3 = -2.15620e-010
+
+Decentering Distortion P1 = 4.05023e-004
+                       P2 = -1.12316e-004
+
+Affinity Parameter B1 = 5.3198e-002
+                   B2 = -6.6462e-003
+
+Fisheye Distortion K4 = 0.00000e+000
+                   K5 = 0.00000e+000
+
+Radial Distortion Correction Profile
+
+r (mm)   dr (microns)
+  0.0          0.0
+  2.0         -0.1
+  4.0         -0.3
+  6.0         -0.6
+  8.0         -0.9
+ 10.0         -1.2
+ 12.0         -1.3
+ 14.0         -1.5
