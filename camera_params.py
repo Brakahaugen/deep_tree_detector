@@ -2,7 +2,7 @@ import numpy as np
 from math import cos, sin, radians, pi
 #ALL IN M
 focal_dist = 21.7258*10**(-3)
-# focal_dist = 35*10**(-3)
+# focal_dist = 28*10**(-3)
 
 princ_offset_x = -0.4446*10**(-3)
 princ_offset_y = 0.2109*10**(-3)
