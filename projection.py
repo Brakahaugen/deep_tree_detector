@@ -25,7 +25,13 @@ IMG_RES_SCALE = 1/4
 TREE_HEIGHT_TO_WIDTH_RATIO = (1/4) / IMG_RES_SCALE
 GLOBAL_ANNOTATION_ID = 0
 
-def create_annotation(folder, index, x0,y0,x1,y1):
+def get_tree_camera_distance(easting,northing,height, tree):
+    tree = tree["geometry"]["coordinates"]
+    cam = [easting,northing,height]
+    return ((tree[0] - cam[0])**2 + (tree[1] - cam[1])**2 + (tree[2] - cam[2])**2)**(0.5)
+
+
+def create_annotation(folder, index, x0,y0,x1,y1, distance):
     global GLOBAL_ANNOTATION_ID
 
     annotation = {}
@@ -37,7 +43,9 @@ def create_annotation(folder, index, x0,y0,x1,y1):
     annotation["id"] = GLOBAL_ANNOTATION_ID
     annotation["bbox"] = [x0, y0, x1-x0, y1-y0] # (x, y, width, height)
     annotation["area"] = (x1-x0)*(y1-y0) #Should be for segmentation, but used for area of bbox
+    annotation["world_distance"] = distance
     GLOBAL_ANNOTATION_ID += 1   
+
 
     print(annotation)
     return annotation
@@ -199,9 +207,12 @@ max_distance = 50 #meters
 
 # folder = "18117"
 folder = "18115"
+
 img_path = "./frontSys/"+folder+"/"
 meta_path = "./Trondheim_imagery_exteriororientation/"+folder+".txt"
 l_r_path = [0,1]
+
+# img_path = os.path.abspath("C:/example/cwd/mydir/myfile.txt")
 
 annotations = []
 
@@ -251,7 +262,7 @@ for image in images.items():
         if x0 is None: continue
         cv2.rectangle(image[1][1], (int(x0),int(y0)), (int(x1),int(y1)), (255,0,0), 20) 
         # cv2.rectangle(image[1][1],   (0,0),(800,900),(0,0,0),30)
-        annotations.append(create_annotation(folder, index, x0,y0,x1,y1))
+        annotations.append(create_annotation(folder, index, x0,y0,x1,y1, get_tree_camera_distance(easting,northing,height, tree)))
 
 
 
@@ -263,4 +274,3 @@ for image in images.items():
 
     cv2.imshow("output", imS)                            # Show image
     cv2.waitKey(0)
-    
